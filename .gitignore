@@ -1,5 +1,19 @@
+# Ignore compiled Python files
 __pycache__/
 *.pyc
-.DS_Stor
+
+# Ignore macOS-specific system file
+.DS_Store
+
+# Ignore all JSON files 
+*.json
+
+# Ignore specific configuration file 
+config.py
+
+# Ignore virtual environment folder
 environment/
+
+# Ignore IDE-specific configuration 
 .idea/
+
