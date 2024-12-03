@@ -17,3 +17,4 @@ environment/
 # Ignore IDE-specific configuration 
 .idea/
 
+google-chrome-stable_current_amd64.deb
