@@ -1,6 +1,35 @@
-from configTest import *
+import pytest
+import time
+import requests
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class TestLeftSideNavigation:
+
+    # pytest setup
+    def setup_method(self):
+        self.video_id = None
+        self.url = None
+        self.driver = webdriver.Chrome()
+
+    # Clean up the web after test
+    def teardown(self):
+        self.driver.quit()
+
+    # pytest fixture for setup content
+    @pytest.fixture
+    def setup_testing_content(self):
+        self.url = "https://www.youtube.com"
+        self.video_id = 'tjwzPIHPEdA'
+        self.driver.get(self.url)
+        self.waitTime = WebDriverWait(self.driver, 160)
+
+
+
+
 
     # Test the home icon button
     def test_home_icon(self, setup_testing_content):
@@ -17,6 +46,10 @@ class TestLeftSideNavigation:
         assert reloaded.status_code == 200, "Page did not reload successfully"
 
     # Test the hamburger menu icon
+
+
+
+    
     
     def test_menu_icon(self, setup_testing_content):
         response = requests.get(self.url)
@@ -298,5 +331,4 @@ class TestLeftSideNavigation:
         playables_button.click()
         self.waitTime.until(EC.url_contains('playables'))
         assert "playables" in self.driver.current_url, "Playables redirect failed"
-
 
