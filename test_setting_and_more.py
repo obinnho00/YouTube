@@ -73,6 +73,8 @@ class TestSettingsAndMore:
         self.waitTime.until(EC.url_contains('premium'))
         assert 'premium' in self.driver.current_url
 
+    
+    
     #@pytest.mark.skip('passed')
     def test_youtube_tv(self, setup_testing_content):
         """
@@ -94,6 +96,8 @@ class TestSettingsAndMore:
         #self.waitTime.until(EC.presence_of_element_located((By.XPATH, "//div[@id='tv-content']")))
         #assert 'tv.youtube' in self.driver.current_url
 
+    
+    
     #@pytest.mark.skip('passed')
     def test_youtube_music(self, setup_testing_content):
         """
@@ -120,6 +124,8 @@ class TestSettingsAndMore:
         assert "music" in self.driver.current_url, "Navigation failed: 'music' not found in the current URL."
  
 
+    
+    
     #@pytest.mark.skip("passed")
     def test_youtube_kids(self, setup_testing_content):
         """
@@ -140,6 +146,8 @@ class TestSettingsAndMore:
         #self.waitTime.until(EC.url_contains('kids.com'))
         #assert 'kids' in self.driver.current_url
 
+   
+    
     #@pytest.mark.skip(reason='passed')
     def test_settings(self, setup_testing_content):
         """
