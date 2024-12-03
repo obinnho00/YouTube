@@ -118,6 +118,7 @@ class TestTopNavigationBar:
 
     
 
+    
     @pytest.mark.skip("tbt")
     def test_clear_empty_search(self, setup_testing_content):
         """
@@ -152,6 +153,10 @@ class TestTopNavigationBar:
         # Verify the input field remains empty
         assert search_input.get_attribute("value") == "", "Search input is not cleared"
 
+    
+    
+    
+    
     #@pytest.mark.skip('passed')
     def test_search_by_voice(self, setup_testing_content):
         """
@@ -182,8 +187,10 @@ class TestTopNavigationBar:
         """
 
 
+
+
 def main():
-    pytest.main(['test_Top_Navigation_Bar.py', '-vv'])
+    pytest.main(['test_top_navigation_bar.py', '-vv'])
 
 
 if __name__ == '__main__':
