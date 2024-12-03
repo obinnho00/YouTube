@@ -19,6 +19,8 @@ class TestLeftSideNavigation:
     def teardown(self):
         self.driver.quit()
 
+
+    
     # pytest fixture for setup content
     @pytest.fixture
     def setup_testing_content(self):
@@ -26,8 +28,6 @@ class TestLeftSideNavigation:
         self.video_id = 'tjwzPIHPEdA'
         self.driver.get(self.url)
         self.waitTime = WebDriverWait(self.driver, 160)
-
-
 
 
 
@@ -45,12 +45,10 @@ class TestLeftSideNavigation:
         reloaded = requests.get(self.driver.current_url)
         assert reloaded.status_code == 200, "Page did not reload successfully"
 
+    
+    
+    
     # Test the hamburger menu icon
-
-
-
-    
-    
     def test_menu_icon(self, setup_testing_content):
         response = requests.get(self.url)
         if response.status_code != 200:
@@ -64,6 +62,9 @@ class TestLeftSideNavigation:
         same_page = requests.get(self.driver.current_url)
         assert same_page.status_code == 200, "Failed to stay on the same page"
 
+    
+    
+    
     # Test YouTube Shorts button
     #@pytest.mark.skip()
     def test_shorts_button(self, setup_testing_content):
@@ -83,6 +84,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains("shorts"))
         assert "shorts" in self.driver.current_url, "Shorts redirect failed"
 
+    
+    
     # Test subscription button
     #@pytest.mark.skip()
     def test_subscriptions_button(self, setup_testing_content):
@@ -103,6 +106,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('feed/subscriptions'))
         assert "feed/subscriptions" in self.driver.current_url, "Subscription redirection URL failed"
 
+    
+    
     # Test the Trending button
     #@pytest.mark.skip()
     def test_trending_button(self, setup_testing_content):
@@ -122,6 +127,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('feed/trending'))
         assert "feed/trending" in self.driver.current_url, "Trending redirect failed"
 
+   
+    
     # Test the Shopping button
     #@pytest.mark.skip()
     def test_shopping_button(self, setup_testing_content):
@@ -141,6 +148,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains("channel"))
         assert "channel" in self.driver.current_url, "Shopping redirect failed"
 
+    
+    
     # Test the Music button
     #@pytest.mark.skip()
     def test_music_button(self, setup_testing_content):
@@ -160,6 +169,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('channel'))
         assert "channel" in self.driver.current_url, "Music redirect failed"
 
+   
+    
     # Test the Movies & TV button
     #@pytest.mark.skip()
     def test_movies_tv_button(self, setup_testing_content):
@@ -179,6 +190,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('feed'))
         assert "feed" in self.driver.current_url, "Movies & TV redirect failed"
 
+   
+    
     # Test the Live button
     #@pytest.mark.skip()
     def test_live_button(self, setup_testing_content):
@@ -198,6 +211,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('channel'))
         assert "channel" in self.driver.current_url, "Live redirect failed"
 
+    
+    
     # Test the Gaming button
     #@pytest.mark.skip()
     def test_gaming_button(self, setup_testing_content):
@@ -217,6 +232,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('gaming'))
         assert "gaming" in self.driver.current_url, "Gaming redirect failed"
 
+    
+    
     # Test the News button
     #@pytest.mark.skip()
     def test_news_button(self, setup_testing_content):
@@ -236,6 +253,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('channel'))
         assert "channel" in self.driver.current_url, "News redirect failed"
 
+   
+    
     # Test the Sports button
     #@pytest.mark.skip()
     def test_sports_button(self, setup_testing_content):
@@ -255,6 +274,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('channel'))
         assert "channel" in self.driver.current_url, "Sports redirect failed"
 
+   
+    
     # Test the Learning button
     #@pytest.mark.skip()
     def test_learning_button(self, setup_testing_content):
@@ -274,6 +295,8 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('feed/courses_destination'))
         assert "feed/courses_destination" in self.driver.current_url, "Learning redirect failed"
 
+    
+    
     # Test the Fashion & Beauty button
     #@pytest.mark.skip()
     def test_fashion_beauty_button(self, setup_testing_content):
@@ -293,6 +316,9 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('channel'))
         assert "channel" in self.driver.current_url, "Fashion & Beauty redirect failed"
 
+   
+    
+    
     #@pytest.mark.skip()
     # Test the Podcasts button
     def test_podcast_button(self, setup_testing_content):
@@ -312,6 +338,9 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('podcasts'))
         assert "podcasts" in self.driver.current_url, "Podcasts redirect failed"
 
+    
+    
+    
     #@pytest.mark.skip()
     # Test the Playables button
     def test_playables_button(self, setup_testing_content):
@@ -332,3 +361,11 @@ class TestLeftSideNavigation:
         self.waitTime.until(EC.url_contains('playables'))
         assert "playables" in self.driver.current_url, "Playables redirect failed"
 
+
+
+def main():
+    pytest.main(['test_youtube_left_sidebar.py', '-vv'])
+
+
+if __name__ == '__main__':
+    main()
